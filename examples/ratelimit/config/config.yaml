@@ -1,14 +1,22 @@
----
-domain: mongo_cps
-descriptors:
-  - key: database
-    value: users
-    rate_limit:
-      unit: second
-      requests_per_unit: 500
+# ---
+# domain: mongo_cps
+# descriptors:
+#   - key: database
+#     value: users
+#     rate_limit:
+#       unit: second
+#       requests_per_unit: 500
 
-  - key: database
-    value: default
+#   - key: database
+#     value: default
+#     rate_limit:
+#       unit: second
+#       requests_per_unit: 500
+---
+domain: timescale
+descriptors:
+  - key: remote_address
+    detailed_metric: true
     rate_limit:
-      unit: second
-      requests_per_unit: 500
+      unit: minute
+      requests_per_unit: 5
